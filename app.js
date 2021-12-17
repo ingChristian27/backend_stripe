@@ -2,13 +2,11 @@ const express = require("express");
 const Stripe = require("stripe");
 const cors = require("cors");
 const app = express();
-const port = 3001;
+const port = 3010;
 
-const stripe = new Stripe(
-  "sk_test_51JroW4HYKMUTgbq9O7YRPs9XQMbKyxtAQc0zAaOLHjNiAR90PSzv3RYKcN0TbhJe2rdO0BxroQo8V8kno56U9czl00IiH14mXE"
-);
+const stripe = new Stripe("sk_test_p3ptDrtq4RpKC7ZxhFMVf9pA");
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://driveinlive.us" }));
 app.use(express.json());
 
 app.post("/api/checkout", async (req, res) => {

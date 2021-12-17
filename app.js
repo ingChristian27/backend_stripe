@@ -6,7 +6,14 @@ const port = 3010;
 
 const stripe = new Stripe("sk_test_p3ptDrtq4RpKC7ZxhFMVf9pA");
 
-app.use(cors({ origin: "https://driveinlive.us" }));
+//app.use(cors({ origin: "https://driveinlive.us" }));
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 app.use(express.json());
 
 app.post("/api/checkout", async (req, res) => {
